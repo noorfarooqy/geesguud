@@ -6963,9 +6963,11 @@ button.close {
 }
 .ec-default-button.ec-blue { background-color: #171b95; }
 .ec-full-parallexbg {
-	background: url(../extra-images/call-to-action-fullbg.jpg);
+	background: url(../extra-images/geesguu1920x301.png);
 	padding: 55px 0px;
-	margin-bottom: 80px;
+  margin-bottom: 25px;
+  background-repeat: no-repeat;
+  background-color: black;
 }
 .ec-full-gallery { margin-top: 40px; }
 .ec-full-counter {
@@ -7036,7 +7038,7 @@ button.close {
   height: 60px;
   width: 60px;
   border-radius: 100%;
-  border: 2px solid #e95842;
+  border: 2px solid #389e00;
   -webkit-animation: ball-scale-ripple 1s 0s infinite cubic-bezier(0.21, 0.53, 0.56, 0.8);
           animation: ball-scale-ripple 1s 0s infinite cubic-bezier(0.21, 0.53, 0.56, 0.8); }
 
@@ -7092,6 +7094,6 @@ button.close {
     width: 60px;
     height: 60px;
     border-radius: 100%;
-    border: 2px solid #e95842;
+    border: 2px solid #389e00;
     -webkit-animation: ball-scale-multiple 1.25s 0s infinite cubic-bezier(0.21, 0.53, 0.56, 0.8);
             animation: ball-scale-multiple 1.25s 0s infinite cubic-bezier(0.21, 0.53, 0.56, 0.8); }

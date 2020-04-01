@@ -1106,7 +1106,7 @@ address {font-style: italic;}
 	width: 100%;
 	height: 100%;
 	background-color: #000;
-	opacity: 0.88;
+	opacity: 0.5;
 }
 .ec-caption {
 	left: 0;
@@ -1183,7 +1183,7 @@ address {font-style: italic;}
 }
 /* Sub Header */
 .ec-mini-header {
-    background-image: url("extra-images/subheader-bg.jpg");
+    background-image: url("extra-images/geesguud1920x230.png");
     background-repeat: no-repeat;
     text-align: center;
     padding: 75px 0px 69px 0px;
@@ -3037,8 +3037,8 @@ blockquote:after {
  }
 
 .dropcap-one:first-letter, .dropcap-one p:first-letter {
-	border: 5px solid #e95842;
-	color: #e95842;
+	border: 5px solid #389e00;
+	color: #389e00;
 	float: left;
 	font-size: 30px;
 	font-weight: 400;
@@ -3048,7 +3048,7 @@ blockquote:after {
  }
 
 .dropcap-two:first-letter, .dropcap-two p:first-letter {
-	color: #e95842;
+	color: #389e00;
 	float: left;
 	font-size: 80px;
 	font-weight: 400;
@@ -3567,7 +3567,7 @@ blockquote:after {
 	position: fixed;
 	right: 0px;
 	top: 45%;
-	background-color: #e95842;
+	background-color: #389e00;
 	color: #ffffff;
 	font-size: 16px;
 	text-transform: uppercase;
@@ -3580,7 +3580,7 @@ blockquote:after {
 	position: absolute;
 	right: 0px;
 	top: -10px;
-	border-bottom: 10px solid #e95842;
+	border-bottom: 10px solid #389e00;
 	border-left: 10px solid transparent;
 }
 .ec-get-wordpress:after {
@@ -3588,6 +3588,6 @@ blockquote:after {
 	position: absolute;
 	right: 0px;
 	bottom: -10px;
-	border-top: 10px solid #e95842;
+	border-top: 10px solid #389e00;
 	border-left: 10px solid transparent;
 }
