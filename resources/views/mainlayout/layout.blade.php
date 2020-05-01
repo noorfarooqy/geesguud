@@ -8,6 +8,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Geesguud</title>
     <!-- Css Files -->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/drongo_logo.svg">
     <link href="/css/bootstrap.css" rel="stylesheet">
     <link href="/css/font-awesome.css" rel="stylesheet">
     <link href="/style.css" rel="stylesheet">

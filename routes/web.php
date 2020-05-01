@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
  */
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -25,3 +24,13 @@ Route::middleware('guest')->group(function () {
     Route::get('/culture', 'pagesController@openComingSoonPage');
     Route::get('/teams', 'pagesController@openComingSoonPage');
 });
+
+Auth::routes();
+
+// Route::get('/', 'HomeController@index')->name('home');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin', 'AdminController@openAdminIndex');
+});
+
+Route::post('/lang', 'misc\LanguageController@SetLanguage');
