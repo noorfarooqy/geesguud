@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
  */
+
+
+
+// Auth::routes(['register' => false]);
 Route::get('/', function () {
     return view('welcome');
 });
@@ -25,12 +29,22 @@ Route::middleware('guest')->group(function () {
     Route::get('/teams', 'pagesController@openComingSoonPage');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 // Route::get('/', 'HomeController@index')->name('home');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/admin', 'AdminController@openAdminIndex');
+    Route::prefix('/admin')->group(function () {
+        Route::get('/', 'AdminController@openAdminIndex');
+        Route::prefix('/teams')->group(function () {
+            Route::get('/categories', 'teams\TeamController@OpenCategoryPage');
+            Route::post('/categories', 'teams\TeamController@SaveNewCategory');
+            Route::get('/leagues', 'teams\LeagueController@OpenLeaguesPage');
+            Route::post('/leagues', 'teams\LeagueController@CreateNewLeague');
+            Route::get('/leagues/{league_id}', 'teams\LeagueController@ViewLeagueTeams');
+            Route::post('/leagues/{league_id}', 'teams\TeamController@AddNewTeam');
+        });
+    });
 });
 
 Route::post('/lang', 'misc\LanguageController@SetLanguage');

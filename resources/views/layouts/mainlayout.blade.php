@@ -190,9 +190,8 @@
                         <li class=""><a href="/admin"><i class="ti-home"></i> <span>{{__('admin_menu.Dashboard')}}</span></a></li>
                         <li class="has-sub-menu"><a href="/admin/teams"><i class="ti-package"></i> <span> {{__('admin_menu.Team')}} </span></a>
                             <ul class="side-header-sub-menu">
-                                <li><a href="/admin/teams/list"><span>{{__('admin_menu.Teams_list')}}</span></a></li>
-                                <li><a href="/admin/teams/new"><span>{{__('admin_menu.Teams_new')}}</span></a></li>
-                                <li><a href="/admin/teams/type/new"><span>{{__('admin_menu.Teams_categories')}}</span></a></li>
+                                <li><a href="/admin/teams/leagues"><span>{{__('admin_menu.Teams_leagues')}}</span></a></li>
+                                <li><a href="/admin/teams/categories"><span>{{__('admin_menu.Teams_categories')}}</span></a></li>
                             </ul>
                         </li>
                         <li class="has-sub-menu"><a href="/admin/members"><i class="ti-crown"></i> <span>{{__('admin_menu.Members')}}</span></a>

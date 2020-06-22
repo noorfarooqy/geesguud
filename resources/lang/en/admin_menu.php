@@ -15,7 +15,7 @@ return [
 
     'Dashboard' => 'Dashboard',
     'Team' => 'Team',
-    'Teams_List' => 'List',
+    'Teams_leagues' => 'Leagues',
     'Teams_new' => 'New',
     'Teams_categories' => 'Categories',
     'Members' => 'Members',
