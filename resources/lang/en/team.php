@@ -24,6 +24,26 @@ return [
     'coach_name' => 'Coach name',
     'is_local' => 'Is geeguud team',
     'delete_team' => 'Delete team',
-    'add_players' => 'Add players'
+    'add_players' => 'Add players',
+    'team_emblem' => 'Team Emblem',
+    'view_players' => 'View players',
+
+    "player" => [
+        'player_name' => 'Player name',
+        'player_number' => 'Player number',
+        'player_dob' => 'Date of birth',
+        'player_email' => 'Email address',
+        'player_phone' => 'Player phone',
+        'player_image' => 'Player image',
+        'player_add' => 'Add player',
+        'player_position' => 'Player position'
+    ],
+    'position' => [
+        'position_title' => 'Player positions',
+        'position_name' => 'Position name',
+        'position_description' => 'Position description',
+        'position_status' => 'Position status',
+        'position_add' => 'Add position'
+    ],
 
 ];

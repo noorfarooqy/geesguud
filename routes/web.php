@@ -43,6 +43,12 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/leagues', 'teams\LeagueController@CreateNewLeague');
             Route::get('/leagues/{league_id}', 'teams\LeagueController@ViewLeagueTeams');
             Route::post('/leagues/{league_id}', 'teams\TeamController@AddNewTeam');
+            Route::get('/{team_id}', 'teams\TeamController@OpenTeamInfoPage');
+            Route::post('/{team_id}/addplayer', 'teams\TeamController@AddTeamPlayer');
+        });
+        Route::prefix('/positions')->group(function () {
+            Route::get('/', 'players\PlayerController@ViewPlayerPosition');
+            Route::post('/', 'players\PlayerController@AddPlayerPosition');
         });
     });
 });

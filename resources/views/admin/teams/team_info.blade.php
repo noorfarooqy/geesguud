@@ -34,37 +34,35 @@
 
         <div class="box">
             <div class="box-head">
-                <h4 class="title">{{$league->league_name}}</h4>
+                <h4 class="title">{{$teamInfo->team_name}}</h4>
             </div>
             <div class="box-body">
                 <table class="table table-hover">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>{{__('team.team_name')}}</th>
-                            <th>{{__('team.team_couch')}}</th>
-                            <th>{{__('team.team_squad_number')}}</th>
-                            <th>{{__('team.is_local')}}</th>
-                            <th>{{__('team.table_action')}}</th>
+                            <th>{{__('team.player.player_number')}}</th>
+                            <th>{{__('team.player.player_name')}}</th>
+                            <th>{{__('team.player.player_dob')}}</th>
+                            <th>{{__('team.player.player_email')}}</th>
+                            <th>{{__('team.player.player_phone')}}</th>
                         </tr>
                     </thead>
                     <tbody>
                         @php
-                        $teams = $league->Teams == null ? [] : $league->Teams;
+                        // $teams = $league->Teams == null ? [] : $league->Teams;
                         @endphp
-                        @foreach ($teams as $key => $team)
+                        @foreach ($players as $key => $player)
                         <tr>
-                            <th>{{$key+1}}</th>
+                            {{-- <th>{{$key+1}}</th>
                             <td>{{$team->team_name}}</td>
                             <td>{{$team->team_couch}}</td>
                             <td>0</td>
                             <td>
                                 @if ($team->is_local)
-                                <i class="fa fa-check-circle" style="color: green"></i>
-                                <span class="ml-1">Local</span>
+                                <i class="fa fa-check-circle" style="color: green"></i>local
                                 @else
-                                <i class="fa fa-times-circle" style="color: red"></i>
-                                <span class="ml-1">Global</span>
+                                <i class="fa fa-times-circle" style="color: red"></i>global
 
                                 @endif
                             </td>
@@ -77,7 +75,7 @@
                                         <a class="dropdown-item" href="#">{{__('team.deactivate_team')}}</a>
                                     </div>
                                 </div>
-                            </td>
+                            </td> --}}
                         </tr>
                         @endforeach
                         
@@ -100,29 +98,42 @@
                 <form action="" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mt-2">
-                        <label for="teamName" class="label">{{__('team.team_name')}}</label>
-                        <input type="text" name="teamName" class="form-control"
-                            placeholder="{{__('team.team_name')}}" value="{{old('teamName')}}">
+                        <label for="playerName" class="label">{{__('team.player.player_name')}}</label>
+                        <input type="text" name="playerName" class="form-control"
+                            placeholder="{{__('team.player.player_name')}}" value="{{old('playerName')}}">
                     </div>
                     <div class="form-group mt-2">
-                        <label for="teamLogo" class="label">{{__('team.team_emblem')}}</label>
-                        <input type="file" name="teamLogo" class="form-control"
-                            placeholder="{{__('team.team_emblem')}}" value="{{old('teamLogo')}}">
+                        <label for="playerImage" class="label">{{__('team.player.player_image')}}</label>
+                        <input type="file" name="playerImage" class="form-control"
+                            placeholder="{{__('team.player.player_image')}}" value="{{old('playerImage')}}">
                     </div>
 
                     <div class="form-group mt-2">
-                        <label for="teamCoachName" class="label">{{__('team.coach_name')}}</label>
-                        <input type="text" name="teamCoachName" class="form-control" min="3"
-                            placeholder="{{__('team.coach_name')}}" value="{{old('teamNumberOfTeams')}}">
+                        <label for="playerNumber" class="label">{{__('team.player.player_number')}}</label>
+                        <input type="number"  name="playerNumber" class="form-control" min="0" max="9999"
+                            placeholder="{{__('team.player.player_number')}}" value="{{old('playerNumber')}}">
                     </div>
 
-                    <div class="form-group mt-4">
-                        <label class="adomx-checkbox primary">
-                            <input type="checkbox" checked="" name="is_local"> <i class="icon"></i> {{__('team.is_local')}}
-                        </label>
+                    <div class="form-group mt-2">
+                        <label for="playerEmail" class="label">{{__('team.player.player_email')}}</label>
+                        <input type="number"  name="playerEmail" class="form-control" min="0" max="9999"
+                            placeholder="{{__('team.player.player_email')}}" value="{{old('playerEmail')}}">
                     </div>
 
-                    <button type="submit" class="btn btn-primary  mt-4">{{__('league.save_league')}}</button>
+                    <div class="form-group mt-2">
+                        <label for="playerPhone" class="label">{{__('team.player.player_phone')}}</label>
+                        <input type="number"  name="playerPhone" class="form-control" min="0" max="9999"
+                            placeholder="{{__('team.player.player_phone')}}" value="{{old('playerPhone')}}">
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <label for="playerPosition" class="label">{{__('team.player.player_position')}}</label>
+                        <select type="number"  name="playerPosition" class="form-control">
+                            <option value="-1">Select position</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary  mt-4">{{__('team.player.player_add')}}</button>
                 </form>
             </div>
         </div>

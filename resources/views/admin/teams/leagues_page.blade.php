@@ -58,9 +58,11 @@
 
                             <td>
                                 @if ($league->is_active)
-                                <i class="fa fa-check-circle" style="color: green"></i>Active
+                                <i class="fa fa-check-circle" style="color: green"></i>
+                                <span class="ml-1">Active</span>
                                 @else
-                                <i class="fa fa-times-circle" style="color: red"></i>Inactive
+                                <i class="fa fa-times-circle" style="color: red"></i>
+                                <span class="ml-1">Inactive</span>
 
                                 @endif
                             </td>

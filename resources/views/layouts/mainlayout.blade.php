@@ -192,6 +192,7 @@
                             <ul class="side-header-sub-menu">
                                 <li><a href="/admin/teams/leagues"><span>{{__('admin_menu.Teams_leagues')}}</span></a></li>
                                 <li><a href="/admin/teams/categories"><span>{{__('admin_menu.Teams_categories')}}</span></a></li>
+                                <li><a href="/admin/positions"><span>{{__('team.position.position_title')}}</span></a></li>
                             </ul>
                         </li>
                         <li class="has-sub-menu"><a href="/admin/members"><i class="ti-crown"></i> <span>{{__('admin_menu.Members')}}</span></a>

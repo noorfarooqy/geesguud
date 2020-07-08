@@ -85,6 +85,19 @@ class TeamController extends Controller
         return $this->RedirectSuccess(__($this->teamLang . 'add_success'));
     }
 
+    public function OpenTeamInfoPage(Request $request, $team_id)
+    {
+        $user = $request->user();
+
+        $teamInfo = TeamsModel::where('id', $team_id)->get();
+        abort_if($teamInfo == null || $teamInfo->count() <= 0, 404, 'Could not find the team you are looking for');
+
+        $players = [];
+        $teamInfo = $teamInfo[0];
+
+        return view('admin.teams.team_info', compact('teamInfo', 'players'));
+    }
+
     public function RedirectError($error, $name = 'error')
     {
         return Redirect::back()->withErrors([$name => $error]);
