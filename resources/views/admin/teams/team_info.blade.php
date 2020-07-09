@@ -43,7 +43,6 @@
                             <th>#</th>
                             <th>{{__('team.player.player_number')}}</th>
                             <th>{{__('team.player.player_name')}}</th>
-                            <th>{{__('team.player.player_dob')}}</th>
                             <th>{{__('team.player.player_email')}}</th>
                             <th>{{__('team.player.player_phone')}}</th>
                         </tr>
@@ -54,32 +53,34 @@
                         @endphp
                         @foreach ($players as $key => $player)
                         <tr>
-                            {{-- <th>{{$key+1}}</th>
-                            <td>{{$team->team_name}}</td>
-                            <td>{{$team->team_couch}}</td>
-                            <td>0</td>
-                            <td>
-                                @if ($team->is_local)
-                                <i class="fa fa-check-circle" style="color: green"></i>local
-                                @else
-                                <i class="fa fa-times-circle" style="color: red"></i>global
 
-                                @endif
-                            </td>
+                            <th>{{$key+1}}</th>
                             <td>
-                                <div class="dropdown">
-                                    <button class="button button-primary dropdown-toggle"
-                                        data-toggle="dropdown">{{__('category.choose_action')}}</button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="/admin/teams/{{$team->id}}">{{__('team.view_players')}}</a>
-                                        <a class="dropdown-item" href="#">{{__('team.deactivate_team')}}</a>
+                                <div class="avatar-wrap d-flex align-items-center flex-wrap mbn-10">
+                                    <div class="avatar avatar-xs mr-10 mb-10 bg-primary text-white">
+                                        {{$player->player_number}}
+                                        <span class="status"></span>
+                                    </div>
+
+                                    <div class="avatar avatar-sm mr-10 mb-10">
+                                        <a href="/admin/players/{{$player->id}}">
+                                            <img src="{{$player->player_image}}" alt="">
+                                            <span class="status"></span>
+                                        </a>
                                     </div>
                                 </div>
-                            </td> --}}
+                            </td>
+                            <td>
+                                <a href="/admin/players/{{$player->id}}">
+                                    {{$player->player_name}}
+                                </a>
+                            </td>
+                            <td>{{$player->player_email}}</td>
+                            <td>{{$player->player_phone}}</td>
                         </tr>
                         @endforeach
-                        
-                        
+
+
 
                     </tbody>
                 </table>
@@ -95,7 +96,7 @@
             </div>
             <div class="card-body">
 
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="/admin/teams/{{$teamInfo->id}}/addplayer" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mt-2">
                         <label for="playerName" class="label">{{__('team.player.player_name')}}</label>
@@ -110,27 +111,39 @@
 
                     <div class="form-group mt-2">
                         <label for="playerNumber" class="label">{{__('team.player.player_number')}}</label>
-                        <input type="number"  name="playerNumber" class="form-control" min="0" max="9999"
+                        <input type="number" name="playerNumber" class="form-control" min="0" max="9999"
                             placeholder="{{__('team.player.player_number')}}" value="{{old('playerNumber')}}">
                     </div>
 
                     <div class="form-group mt-2">
                         <label for="playerEmail" class="label">{{__('team.player.player_email')}}</label>
-                        <input type="number"  name="playerEmail" class="form-control" min="0" max="9999"
+                        <input type="email" name="playerEmail" class="form-control" min="0" max="9999"
                             placeholder="{{__('team.player.player_email')}}" value="{{old('playerEmail')}}">
                     </div>
 
                     <div class="form-group mt-2">
                         <label for="playerPhone" class="label">{{__('team.player.player_phone')}}</label>
-                        <input type="number"  name="playerPhone" class="form-control" min="0" max="9999"
+                        <input type="telephone" name="playerPhone" class="form-control" min="0" max="9999"
                             placeholder="{{__('team.player.player_phone')}}" value="{{old('playerPhone')}}">
                     </div>
 
                     <div class="form-group mt-2">
                         <label for="playerPosition" class="label">{{__('team.player.player_position')}}</label>
-                        <select type="number"  name="playerPosition" class="form-control">
+                        <select name="playerPosition" class="form-control">
                             <option value="-1">Select position</option>
+                            @foreach ($positions as $position)
+                            @if (old('playerPosition') == $position->id)
+                            <option value="{{$position->id}}" selected>{{$position->position_name}}</option>
+                            @else
+                            <option value="{{$position->id}}">{{$position->position_name}}</option>
+                            @endif
+                            @endforeach
                         </select>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="playerAddress" class="label">{{__('team.player.player_address')}}</label>
+                        <input type="text" name="playerAddress" class="form-control"
+                            placeholder="{{__('team.player.player_address')}}" value="{{old('playerAddress')}}">
                     </div>
 
                     <button type="submit" class="btn btn-primary  mt-4">{{__('team.player.player_add')}}</button>

@@ -44,7 +44,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/leagues/{league_id}', 'teams\LeagueController@ViewLeagueTeams');
             Route::post('/leagues/{league_id}', 'teams\TeamController@AddNewTeam');
             Route::get('/{team_id}', 'teams\TeamController@OpenTeamInfoPage');
-            Route::post('/{team_id}/addplayer', 'teams\TeamController@AddTeamPlayer');
+            Route::post('/{team_id}/addplayer', 'players\PlayerController@AddTeamPlayer');
         });
         Route::prefix('/positions')->group(function () {
             Route::get('/', 'players\PlayerController@ViewPlayerPosition');

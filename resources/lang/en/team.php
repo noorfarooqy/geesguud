@@ -36,7 +36,8 @@ return [
         'player_phone' => 'Player phone',
         'player_image' => 'Player image',
         'player_add' => 'Add player',
-        'player_position' => 'Player position'
+        'player_position' => 'Player position',
+        'player_address' => 'Player address'
     ],
     'position' => [
         'position_title' => 'Player positions',

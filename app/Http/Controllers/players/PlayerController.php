@@ -54,6 +54,7 @@ class PlayerController extends Controller
             "playerNumber" => "required|integer|min:0|max:9999",
             "playerAddress" => "required|string|max:250",
             "playerPhone" => "required|string|max:20",
+            "playerEmail" => "required|email|max:20",
             "playerPosition" => "required|integer|exists:player_positions,id",
         ];
 
@@ -68,10 +69,10 @@ class PlayerController extends Controller
         $data["playerImage"] = "/storage/" . $playerImage;
 
         $PlayerModel = new PlayersModel();
-        $new_player = $PlayerModel->SaveNewPlayer($data, $user->id);
-
+        $new_player = $PlayerModel->SaveNewPlayer($data, $team_id, $user->id);
         if (!$new_player) {
             return Redirect::back()->withErrors(['error' => $PlayerModel->getError()]);
         }
+        return Redirect::back()->with('success', 'successfully added new player');
     }
 }

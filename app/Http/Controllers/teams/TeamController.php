@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\teams;
 
 use App\Http\Controllers\Controller;
+use App\models\players\PlayersModel;
+use App\models\players\PlayersPositionModel;
 use App\models\teams\LeaguesModel;
 use App\models\teams\TeamCategoryModel;
 use App\models\teams\TeamsModel;
@@ -92,10 +94,10 @@ class TeamController extends Controller
         $teamInfo = TeamsModel::where('id', $team_id)->get();
         abort_if($teamInfo == null || $teamInfo->count() <= 0, 404, 'Could not find the team you are looking for');
 
-        $players = [];
+        $players = PlayersModel::where('player_team', $team_id)->get();
         $teamInfo = $teamInfo[0];
-
-        return view('admin.teams.team_info', compact('teamInfo', 'players'));
+        $positions = PlayersPositionModel::where('active_position', true)->get();
+        return view('admin.teams.team_info', compact('teamInfo', 'players', 'positions'));
     }
 
     public function RedirectError($error, $name = 'error')
